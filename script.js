@@ -4,7 +4,25 @@ const logo = document.querySelector('#logo');
 const hamburger = document.querySelector('.hamburger');
 const headline = document.querySelector('.headline');
 
+const images = document.querySelectorAll('.hero img');
+
 const tl = new TimelineMax();
+
+let counter = 0;
+const size = images[0].clientWidth;
+
+
+hero.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+hamburger.addEventListener('click', () => {
+    hero.style.transition = 'transform 0.4s ease-in-out';
+    counter++;
+    hero.style.transform = 'translate(' + (-size * counter) + 'px)';
+
+    if(counter > 5) {
+        counter = 0;
+    }
+});
 
 tl.fromTo(hero, 1, {height: "0%"}, {height: "80%", ease: Power2.easeInOut })
 .fromTo(hero, 1.2, {width: "100%"}, {width: "80%", ease: Power2.easeInOut })

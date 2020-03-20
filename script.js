@@ -17,15 +17,19 @@ hero.style.transform = 'translateX(' + (-size * counter) + 'px)';
 hamburger.addEventListener('click', () => {
     hero.style.transition = 'transform 0.4s ease-in-out';
     counter++;
-    hero.style.transform = 'translate(' + (-size * counter) + 'px)';
-
-    if(counter > 5) {
-        counter = 0;
-    }
+    hero.style.transform = 'translateX(' + (-size * counter) + 'px)';
 });
 
-tl.fromTo(hero, 1, {height: "0%"}, {height: "80%", ease: Power2.easeInOut })
-.fromTo(hero, 1.2, {width: "100%"}, {width: "80%", ease: Power2.easeInOut })
+hero.addEventListener('transitionend', () => {
+    if(images[counter].id === 'lastClone') {
+        hero.style.transition = 'none';
+        counter = images.length - images.length;
+        hero.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    }
+})
+
+tl.fromTo(hero, 1, {height: "0%"}, {height: "100%", ease: Power2.easeInOut })
+.fromTo(hero, 1.2, {width: "120%"}, {width: "100%", ease: Power2.easeInOut })
 .fromTo(slider, 1.2, {x: '-100%'}, {x: '0%', ease: Power2.easeInOut }, '-=1.2')
 .fromTo(
     logo,

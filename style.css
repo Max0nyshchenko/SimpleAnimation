@@ -74,6 +74,7 @@ section {
 
 .hero img {
     object-fit: cover;
+        box-shadow: 5px 0 10px 5px black;
 }
 
 .spec {

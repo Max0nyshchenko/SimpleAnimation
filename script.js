@@ -74,6 +74,17 @@ tl.fromTo(hero, 1, {height: "0%"}, {height: "100%", ease: Power2.easeInOut })
         opacity: '1',
         y: '0'
     }
+)
+.fromTo(
+    heroContainer,
+    1,
+    {
+        boxShadow: 'none'
+    },
+    {
+        boxShadow: '0 5px 10px black'
+    },
+    '-=0.5'
 );
 
 hamburger.addEventListener('mouseover', ()=>{

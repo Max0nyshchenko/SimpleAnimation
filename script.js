@@ -4,12 +4,22 @@ const logo = document.querySelector('#logo');
 const hamburger = document.querySelector('.hamburger');
 const headline = document.querySelector('.headline');
 
+const heroContainer = document.querySelector('.hero-container');
 const images = document.querySelectorAll('.hero img');
+
+
 
 const tl = new TimelineMax();
 
 let counter = 0;
-const size = images[0].clientWidth;
+const size = `-101`;
+
+for(let i = 0; i < images.length; i++) {
+    images[i].style.width = `100%`;
+    images[i].style.height = `100%`;
+}
+
+hero.style.gridTemplateColumns = `100% 1% 100% 1% 100% 1% 100% 1% 100% 1% 100% 1% 100% 1% 100% 1%`; 
 
 
 hero.style.transform = 'translateX(' + (-size * counter) + 'px)';
@@ -17,7 +27,7 @@ hero.style.transform = 'translateX(' + (-size * counter) + 'px)';
 hamburger.addEventListener('click', () => {
     hero.style.transition = 'transform 0.4s ease-in-out';
     counter++;
-    hero.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    hero.style.transform = 'translateX(' + (size * counter) + '%)';
 });
 
 hero.addEventListener('transitionend', () => {
